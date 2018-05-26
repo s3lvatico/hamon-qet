@@ -3,7 +3,7 @@ package org.gmnz.qet;
 
 import java.util.concurrent.TimeUnit;
 
-import org.gmnz.qet.TextFileLineSampler;
+import org.gmnz.qet.TextFileLineSamplerTask;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class TestTextFileLineSampler {
 
 	@Test
 	public void someTest() throws InterruptedException {
-		final TextFileLineSampler sampler = new TextFileLineSampler("dati.txt");
+		final TextFileLineSamplerTask sampler = new TextFileLineSamplerTask("dati.txt");
 		final int TEST_DURATION_MS = 10000;
 		Thread t = new Thread(sampler);
 		t.setDaemon(true);

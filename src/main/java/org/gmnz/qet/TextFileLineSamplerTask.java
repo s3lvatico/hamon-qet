@@ -1,6 +1,5 @@
 package org.gmnz.qet;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -9,9 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-
-
-public class TextFileLineSampler implements Runnable {
+class TextFileLineSamplerTask implements Runnable {
 
 	private SampleHolder<String> sampleHolder;
 	private final Path targetFilePath;
@@ -23,20 +20,14 @@ public class TextFileLineSampler implements Runnable {
 
 	private boolean errorRaised;
 
-
-
-
-	public TextFileLineSampler(String targetFileName) {
+	TextFileLineSamplerTask(String targetFileName, SampleHolder<String> sampleHolder) {
 		charset = Charset.forName("UTF-8");
 		samplingIsActive = true;
 		targetFilePath = Paths.get(targetFileName);
 		samplingPeriod = DEFAULT_SAMPLING_PERIOD_MS;
-		sampleHolder = new SampleHolder<>();
+		this.sampleHolder = sampleHolder;
 		errorRaised = false;
 	}
-
-
-
 
 	@Override
 	public void run() {
@@ -59,17 +50,11 @@ public class TextFileLineSampler implements Runnable {
 		}
 	}
 
-
-
-
-	public boolean errorsDetected() {
+	boolean errorsDetected() {
 		return errorRaised;
 	}
 
-
-
-
-	public String getSampledLogLine() {
+	String getSampledLogLine() {
 		return sampleHolder.getSample();
 	}
 }
