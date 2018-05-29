@@ -1,5 +1,7 @@
 package org.gmnz.qet;
 
+
+
 import java.text.ParseException;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -7,6 +9,8 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.gmnz.qet.util.Formatting;
+
+
 
 class Parser {
 
@@ -16,14 +20,19 @@ class Parser {
 	private static final String SECTION_REGEXP = "/([^/]*)";
 
 	private final Pattern ptnLogLine;
+
 	private final Pattern ptnSection;
 
 	private static final Logger log = Logger.getLogger(Parser.class);
+
+
 
 	public Parser() {
 		ptnLogLine = Pattern.compile(PARSE_REGEXP);
 		ptnSection = Pattern.compile(SECTION_REGEXP);
 	}
+
+
 
 	LogLineDto parseLogLine(String logLine) {
 		Matcher mLogLineTokens = ptnLogLine.matcher(logLine);
@@ -53,6 +62,8 @@ class Parser {
 		}
 	}
 
+
+
 	private Date parseTimestamp(String timestamp) {
 		try {
 			return Formatting.CLF_DF.parse(timestamp);
@@ -63,6 +74,8 @@ class Parser {
 			return null;
 		}
 	}
+
+
 
 	private Integer parseNumericValue(String s) {
 		try {

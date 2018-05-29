@@ -1,17 +1,19 @@
 package org.gmnz.qet.sandbox;
 
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
+
 class NonInjectiveMap {
 
 	private Map<String, Integer> direct;
-	private Map<Integer, List<String>> inverse;
 
+	private Map<Integer, List<String>> inverse;
 
 
 
@@ -19,7 +21,6 @@ class NonInjectiveMap {
 		direct = new HashMap<>();
 		inverse = new HashMap<>();
 	}
-
 
 
 

@@ -1,11 +1,13 @@
 package org.gmnz.qet;
 
 
+
 import java.util.concurrent.TimeUnit;
 
 import org.gmnz.qet.TextFileLineSamplerTask;
 import org.junit.Assert;
 import org.junit.Test;
+
 
 
 public class TestTextFileLineSampler {
@@ -48,6 +50,5 @@ public class TestTextFileLineSampler {
 		Assert.assertFalse(sampler.errorsDetected());
 		TimeUnit.MILLISECONDS.sleep(TEST_DURATION_MS);
 	}
-
 
 }

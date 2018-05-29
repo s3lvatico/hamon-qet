@@ -1,9 +1,12 @@
 package org.gmnz.qet.sandbox;
 
-class SectionRank implements Comparable<SectionRank> {
-	String sectionName;
-	int rank;
 
+
+class SectionRank implements Comparable<SectionRank> {
+
+	String sectionName;
+
+	int rank;
 
 
 
@@ -14,7 +17,6 @@ class SectionRank implements Comparable<SectionRank> {
 
 
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -22,7 +24,6 @@ class SectionRank implements Comparable<SectionRank> {
 		result = prime * result + ((sectionName == null) ? 0 : sectionName.hashCode());
 		return result;
 	}
-
 
 
 
@@ -44,7 +45,5 @@ class SectionRank implements Comparable<SectionRank> {
 				return false;
 		return true;
 	}
-
-
 
 }

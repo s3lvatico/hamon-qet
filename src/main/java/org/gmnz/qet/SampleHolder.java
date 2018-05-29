@@ -1,14 +1,15 @@
 package org.gmnz.qet;
 
 
+
 import java.util.LinkedList;
 import java.util.Queue;
+
 
 
 class SampleHolder<ST> {
 
 	private Queue<ST> _q;
-
 
 
 
@@ -18,11 +19,9 @@ class SampleHolder<ST> {
 
 
 
-
 	int getNumSamples() {
 		return _q.size();
 	}
-
 
 
 
@@ -30,7 +29,6 @@ class SampleHolder<ST> {
 		_q.add(sample);
 		return getNumSamples();
 	}
-
 
 
 

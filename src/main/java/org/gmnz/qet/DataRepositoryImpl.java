@@ -1,5 +1,7 @@
 package org.gmnz.qet;
 
+
+
 public class DataRepositoryImpl implements DataRepository, StatsReceiver {
 
 	@Override
@@ -7,10 +9,14 @@ public class DataRepositoryImpl implements DataRepository, StatsReceiver {
 		// SMTODO Auto-generated method stub
 	}
 
+
+
 	@Override
 	public void raiseRank(String section) {
 		// SMTODO Auto-generated method stub
 	}
+
+
 
 	@Override
 	public void logSiteHit() {

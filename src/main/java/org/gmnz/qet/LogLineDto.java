@@ -1,18 +1,32 @@
 package org.gmnz.qet;
 
+
+
 import java.util.Date;
 
+
+
 class LogLineDto {
-	
+
 	public String ipAddress;
+
 	public String rfc1413id;
+
 	public String userId;
+
 	public Date timestamp = new Date();
+
 	public String httpMethod;
+
 	public String requestUrl;
+
 	public String section;
+
 	public Integer httpStatusCode;
+
 	public Integer bytesTransferred;
+
+
 
 	@Override
 	public String toString() {

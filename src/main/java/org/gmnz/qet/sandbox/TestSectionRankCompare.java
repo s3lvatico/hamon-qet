@@ -1,7 +1,9 @@
 package org.gmnz.qet.sandbox;
 
 
+
 import java.util.TreeSet;
+
 
 
 class TestSectionRankCompare {
@@ -19,7 +21,7 @@ class TestSectionRankCompare {
 		sr3.sectionName = "Saga";
 		sr3.rank = 2;
 
-//		Set<SectionRank> mySet = new TreeSet<>();
+// Set<SectionRank> mySet = new TreeSet<>();
 		TreeSet<SectionRank> mySet = new TreeSet<>();
 		mySet.add(sr1);
 		mySet.add(sr2);
@@ -41,7 +43,6 @@ class TestSectionRankCompare {
 
 		System.out.println(sr3.compareTo(sr3_1));
 		System.out.println(sr3.equals(sr3_1));
-
 
 		/*
 		 * 
