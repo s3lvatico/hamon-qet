@@ -17,7 +17,7 @@ class GeneratorTask implements Runnable {
 	private static final int LOW_TRAFFIC = 2;
 	private static final int HIGH_TRAFFIC = 15;
 
-	private boolean active = true;
+	private boolean active;
 
 	private long tsStart;
 
@@ -45,7 +45,7 @@ class GeneratorTask implements Runnable {
 		tsStart = System.currentTimeMillis();
 		while (active) {
 			sleep();
-			int linesToGenerate = getTraffic();
+			int linesToGenerate = getTrafficRate();
 			List<String> logLines = generator.generateClfLines(linesToGenerate);
 			collector.receiveLines(logLines);
 		}
@@ -54,7 +54,7 @@ class GeneratorTask implements Runnable {
 
 
 
-	private int getTraffic() {
+	private int getTrafficRate() {
 		long elapsed = System.currentTimeMillis() - tsStart;
 		double cycleProgress = (elapsed % CYCLE_TIME_MS) / (double) CYCLE_TIME_MS;
 		return cycleProgress < DUTY_CYCLE ? LOW_TRAFFIC : HIGH_TRAFFIC;
