@@ -1,0 +1,31 @@
+File creato a causa di una situazione contingente. Non ho disponibile il computer per scrivere gli appunti su jira,
+perciò uso questo file localmente per prendere appunti, poi casomai li trasferirò nel jira.
+
+ClfLineCollector - interfaccia che viene invocata quando viene generato un certo numero di linee di log e le si vuole
+elaborare in qualche modo.
+
+Nei test: inizialmente mi basta scriverle su console.
+In operatività: le dovrò memorizzare in qualche posto che sarà interrogato a posteriori.
+
+
+ClfLineGenerator - classe concreta che genera righe di CLF in modo abbastanza casuale.
+Ci sono due versioni dell'unico metodo utile esposto, che è semplicemente quello di generazione della riga.
+
+
+GeneratorTask - classe concreta che dovrebbe utilizzare sia il generatore dirighe che il collector.
+
+
+Va comunque studiata una semplice infrastruttra per avviare ed arrestare il processo di generazione delle righe.
+Ho il task definito, che è il client del generatore e del collettore.
+Il task deve essere aggregato in un'altra struttura che espone le funzionalità di avviamento e arresto.
+Può servire una nuova classe (magari è CLOG stessa).
+Cosa c'è da fare
+-   creare il collettore delle righe
+-   creare il generatore
+-   creare il task e iniettargli le dipendenze (collettore e generatore)
+-   creare la classe di controllo e iniettarci il task
+
+La classe di controllo esegue tutti i compiti di creazione e interconnessione tra oggetti dipendenti, ma esporrà
+anche le funzionalità di arresto del task di generazione.
+Per semplicità, una volta che si è arrestata la generazione, questa non potrà essere riavviata, e il processo si
+concluderà.
