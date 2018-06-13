@@ -12,7 +12,10 @@ import org.apache.log4j.Logger;
 
 public class ServerSocketTask implements Runnable {
 
-	private ServerSocket server;
+	/**
+	 * 
+	 */
+	private ServerSocket serverSocket;
 	private ServerSocketListener listener;
 	private boolean active;
 
@@ -25,7 +28,7 @@ public class ServerSocketTask implements Runnable {
 		this.listener = listener;
 		try {
 			InetAddress addr = InetAddress.getByName(hostname);
-			server = new ServerSocket(port, 2, addr);
+			serverSocket = new ServerSocket(port, 2, addr);
 			active = true;
 			log.info("initialized shutdown listening socket");
 		}
@@ -45,7 +48,7 @@ public class ServerSocketTask implements Runnable {
 			ObjectInputStream ois = null;
 			try {
 				log.info("shutdown listening socket ready");
-				socket = server.accept();
+				socket = serverSocket.accept();
 				// this should spawn a new thread to handle the request, but we're simply
 				// shutting down everything here
 				ois = new ObjectInputStream(socket.getInputStream());
