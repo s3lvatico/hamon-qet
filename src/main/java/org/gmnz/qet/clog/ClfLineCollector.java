@@ -12,5 +12,5 @@ interface ClfLineCollector {
 
 
 	void receiveLines(Collection<String> lines);
-	
+
 }

@@ -13,9 +13,11 @@ class SampleHolderImpl implements SampleHolder {
 
 
 
+
 	SampleHolderImpl() {
 		q = new LinkedBlockingQueue<>();
 	}
+
 
 
 
@@ -30,6 +32,7 @@ class SampleHolderImpl implements SampleHolder {
 		}
 
 	}
+
 
 
 

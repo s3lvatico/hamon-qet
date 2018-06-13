@@ -22,6 +22,7 @@ class CommonLogFileSamplerTask implements Runnable {
 
 
 
+
 	public CommonLogFileSamplerTask(String targetFileName, SampleHolder sampleHolder) throws FileSamplerException {
 		this.sampleHolder = sampleHolder;
 		Path targetFilePath = Paths.get(targetFileName);
@@ -34,6 +35,7 @@ class CommonLogFileSamplerTask implements Runnable {
 			throw new FileSamplerException("can't initialize sampler", e);
 		}
 	}
+
 
 
 
@@ -56,6 +58,7 @@ class CommonLogFileSamplerTask implements Runnable {
 
 
 
+
 	private void sleep() {
 		Thread.yield();
 		try {
@@ -65,6 +68,7 @@ class CommonLogFileSamplerTask implements Runnable {
 			e.printStackTrace();
 		}
 	}
+
 
 
 

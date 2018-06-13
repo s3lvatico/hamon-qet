@@ -10,7 +10,9 @@ public class Sampler {
 
 
 
+
 	public Sampler(String targetFileName) {
 		sampleHolder = new SampleHolderImpl();
 	}
+	
 }

@@ -8,6 +8,7 @@ interface SampleHolder {
 
 
 
+
 	String getSample();
 
 }
