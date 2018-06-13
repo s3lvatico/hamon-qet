@@ -20,6 +20,8 @@ class CommonLogFileSamplerTask implements Runnable {
 
 	private boolean samplingIsActive;
 
+	private static final long SAMPLING_PERIOD_MS = 2000;
+
 
 
 	public CommonLogFileSamplerTask(String targetFileName, SampleHolder sampleHolder) throws FileSamplerException {
@@ -48,10 +50,10 @@ class CommonLogFileSamplerTask implements Runnable {
 				sleep();
 			}
 			catch (IOException e) {
-				e.printStackTrace(); // SMTODO rivedila
+				e.printStackTrace();
+				samplingIsActive = false;
 			}
 		}
-
 	}
 
 
@@ -59,11 +61,9 @@ class CommonLogFileSamplerTask implements Runnable {
 	private void sleep() {
 		Thread.yield();
 		try {
-			TimeUnit.MILLISECONDS.sleep(2000);
+			TimeUnit.MILLISECONDS.sleep(SAMPLING_PERIOD_MS);
 		}
-		catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		catch (InterruptedException e) { e.printStackTrace(); }
 	}
 
 
