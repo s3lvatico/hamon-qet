@@ -12,7 +12,7 @@ class GeneratorTask implements Runnable {
 
 	private static final long SLEEP_TIME_MS = 1000;
 	private static final double DUTY_CYCLE = .35;
-	private static final double CYCLE_TIME_MS = 180000;
+	private static final double CYCLE_TIME_MS = 30000;
 
 	private static final int LOW_TRAFFIC = 2;
 	private static final int HIGH_TRAFFIC = 15;
