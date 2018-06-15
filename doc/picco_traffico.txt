@@ -1,0 +1,26 @@
+rilevamento del traffico negli ultimi N minuti.
+
+Si tratta di creare una qualche finestra temporale nella quale collocare le 
+richieste rilevate dal log.
+Ho pensato ad una coda bifronte (double ended queue, "deque", o "deck").
+
+Con quale logica inserisco nuove richieste?
+
+All'arrivo del batch di richieste
+
+segno il timestamp attuale (ts0)
+
+per ogni richiesta R del batch
+	se il timestamp di R non è più vecchio di N minuti rispetto a ts0
+		inserisco R in cima alla coda
+		
+partendo dal fondo della coda
+prendi l'ultimo elemento della coda ( E )
+	finché il ts di E è più vecchio di N minuti rispetto a ts0
+		rimuovo l'elemento	
+		E = ultimo elemento della coda 
+		
+Così facendo, la coda dovrebbe contenere solo gli elementi contenuti entro una
+certa finestra temporale.
+QUante richieste ho avuto nella finestra temporale di interesse? Esattamente la
+dimensione della coda.		
