@@ -1,0 +1,16 @@
+Opzioni per la riga di comando
+
+Mi immagino un comando del tipo
+
+clog -f targetLogFile.log -c 60 -d 30 -l 2 -h 15
+
+dove
+    -f  nome del file di destinazione
+    -c  durata di un ciclo (secondi)
+    -d  duty cycle, ossia percentuale del ciclo in cui viene emesso il traffico elevato
+    -l  rateo basso di emissione delle righe casuali (righe al secondo)
+    -h  rateo alto di emissione delle righe casuali (righe al secondo)
+
+e per chiudere:
+
+clog -s
