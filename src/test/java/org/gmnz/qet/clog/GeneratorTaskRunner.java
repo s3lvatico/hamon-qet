@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GeneratorTaskRunner {
 
-	GeneratorTask task;
+	LogGenerationFacilityTask task;
 
 	final int taskDurationSeconds;
 
@@ -16,7 +16,7 @@ public class GeneratorTaskRunner {
 
 
 	GeneratorTaskRunner(int taskDurationSeconds) {
-		task = new GeneratorTask(new ClfLineGenerator(), new ConsoleClfLineCollector());
+		task = new LogGenerationFacilityTask(new ClfLineGenerator(), new ConsoleClfLineCollector());
 		this.taskDurationSeconds = taskDurationSeconds;
 	}
 

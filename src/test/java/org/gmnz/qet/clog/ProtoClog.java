@@ -11,7 +11,7 @@ import org.gmnz.util.ServerSocketTask;
 public class ProtoClog implements ServerSocketListener {
 
 	ServerSocketTask serverSocketTask;
-	GeneratorTask generatorTask;
+	LogGenerationFacilityTask logGenerationFacilityTask;
 
 
 
@@ -20,7 +20,7 @@ public class ProtoClog implements ServerSocketListener {
 		serverSocketTask = new ServerSocketTask("192.168.1.109", 19756, this);
 		ConsoleClfLineCollector collector = new ConsoleClfLineCollector();
 		ClfLineGenerator generator = new ClfLineGenerator();
-		generatorTask = new GeneratorTask(generator, collector);
+		logGenerationFacilityTask = new LogGenerationFacilityTask(generator, collector);
 	}
 
 
@@ -28,7 +28,7 @@ public class ProtoClog implements ServerSocketListener {
 
 	void run() {
 		ExecutorService exec = Executors.newCachedThreadPool();
-		exec.execute(generatorTask);
+		exec.execute(logGenerationFacilityTask);
 		exec.execute(serverSocketTask);
 	}
 
@@ -37,7 +37,7 @@ public class ProtoClog implements ServerSocketListener {
 
 	@Override
 	public void serverShutdownRequested() {
-		generatorTask.stop();
+		logGenerationFacilityTask.stop();
 	}
 
 
