@@ -29,3 +29,8 @@ La classe di controllo esegue tutti i compiti di creazione e interconnessione tr
 anche le funzionalità di arresto del task di generazione.
 Per semplicità, una volta che si è arrestata la generazione, questa non potrà essere riavviata, e il processo si
 concluderà.
+
+
+
+Ancora su clog
+
