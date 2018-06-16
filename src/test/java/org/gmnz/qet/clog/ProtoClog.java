@@ -4,8 +4,8 @@ package org.gmnz.qet.clog;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.gmnz.util.incubation.ServerSocketListener;
-import org.gmnz.util.incubation.ServerSocketTask;
+import org.gmnz.util.ServerSocketListener;
+import org.gmnz.util.ServerSocketTask;
 
 
 public class ProtoClog implements ServerSocketListener {
