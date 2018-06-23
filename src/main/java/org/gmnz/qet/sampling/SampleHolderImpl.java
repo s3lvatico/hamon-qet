@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 class SampleHolderImpl implements SampleHolder {
 
-	BlockingQueue<String> q;
+	private BlockingQueue<String> q;
 
 
 
@@ -35,14 +35,13 @@ class SampleHolderImpl implements SampleHolder {
 
 	@Override
 	public synchronized String getSample() {
-		String sample = null;
 		try {
-			sample = q.take();
+			return q.take();
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return sample;
 	}
 
 }
