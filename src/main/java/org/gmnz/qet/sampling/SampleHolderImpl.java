@@ -25,7 +25,6 @@ class SampleHolderImpl implements SampleHolder {
 			q.put(sampledString);
 		}
 		catch (InterruptedException e) {
-			// SMTODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
