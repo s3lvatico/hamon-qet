@@ -9,8 +9,6 @@ import java.util.concurrent.Executors;
 
 public class Sampler {
 
-// private SampleHolder sampleHolder;
-
 	private CommonLogFileSamplerTask samplerTask;
 
 	private ExecutorService exec;
@@ -18,7 +16,6 @@ public class Sampler {
 
 
 	public Sampler(String targetFileName, SampleHolder sampleHolder) throws FileSamplerException {
-// this.sampleHolder = sampleHolder;
 		samplerTask = new CommonLogFileSamplerTask(targetFileName, sampleHolder);
 		exec = Executors.newSingleThreadExecutor();
 	}
