@@ -7,6 +7,7 @@ import org.gmnz.util.ServerSocketTask;
 import org.gmnz.util.SocketUtil;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -72,8 +73,31 @@ public class Clog implements ServerSocketListener {
 
 
 
+	private static void printSynopsis(PrintStream out) {
+		out.println("usage:");
+		out.println("\tClog <filename>");
+		out.println("\t\twrite random CLF log lines to target file");
+		out.println("\tClog -stop");
+		out.println("\t\tshut down the random log lines generator");
+	}
+
+
+
 	public static void main(String[] args) {
-		// TODO logica di avviamento
-		// TODO logica di arresto
+		if (args.length != 1) {
+			System.err.println("ERROR: wrong number of arguments");
+			printSynopsis(System.err);
+			System.exit(1);
+		}
+		if (args[0].equalsIgnoreCase("--stop")) {
+			System.out.println("stop invoked");
+			shutdown();
+		}
+		else {
+			String targetFileName = args[0];
+			System.out.printf("generating random CLF lines into file <%s>%n", targetFileName);
+			Clog c = new Clog(targetFileName);
+			c.start();
+		}
 	}
 }
