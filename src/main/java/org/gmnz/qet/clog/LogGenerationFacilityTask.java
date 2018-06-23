@@ -39,6 +39,7 @@ class LogGenerationFacilityTask implements Runnable {
 
 	void stop() {
 		active = false;
+		sleep(2 * SLEEP_TIME_MS);
 	}
 
 
