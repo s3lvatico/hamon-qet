@@ -65,9 +65,15 @@ class LogGenerationFacilityTask implements Runnable {
 
 
 	private void sleep() {
+		sleep(SLEEP_TIME_MS);
+	}
+
+
+
+	private void sleep(long sleepTimeMs) {
 		Thread.yield();
 		try {
-			TimeUnit.MILLISECONDS.sleep(SLEEP_TIME_MS);
+			TimeUnit.MILLISECONDS.sleep(sleepTimeMs);
 		}
 		catch (InterruptedException e) {
 			e.printStackTrace();
