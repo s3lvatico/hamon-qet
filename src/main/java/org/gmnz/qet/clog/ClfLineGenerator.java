@@ -1,6 +1,7 @@
 package org.gmnz.qet.clog;
 
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import org.gmnz.util.Formatting;
+
 
 
 public class ClfLineGenerator {
@@ -19,8 +21,6 @@ public class ClfLineGenerator {
 
 	private final String[] usernamePool = { "james", "woodrow", "warren", "herbert", "calvin", "thomas", "chester",
 			"lyndon", "zachary", "jimmy", "harry" };
-
-
 
 	private final String[] httpMethods = { "PUT", "HEAD", "GET", "POST", "DELETE", "OPTIONS" };
 
@@ -44,12 +44,9 @@ public class ClfLineGenerator {
 
 	private final Random rnd;
 
-
-
 	private enum FlipCoin {
 		heads, tails
 	}
-
 
 
 
@@ -59,18 +56,15 @@ public class ClfLineGenerator {
 
 
 
-
 	private FlipCoin flipCoin() {
 		return rnd.nextDouble() > .5 ? FlipCoin.heads : FlipCoin.tails;
 	}
 
 
 
-
 	private String generateRandomIpV4Address() {
 		return ipV4Pool[rnd.nextInt(ipV4Pool.length)];
 	}
-
 
 
 
@@ -101,7 +95,6 @@ public class ClfLineGenerator {
 
 
 
-
 	private String generateRequestLogLine() {
 		StringBuilder sb = new StringBuilder("\"");
 		// metodo http
@@ -114,7 +107,6 @@ public class ClfLineGenerator {
 		sb.append(" HTTP/1.1\"");
 		return sb.toString();
 	}
-
 
 
 
@@ -155,7 +147,7 @@ public class ClfLineGenerator {
 		 * 
 		 * Let's try cheating a bit with the mean value of the gaussian curve
 		 */
-//		int statusCodeIndex = (int) Math.round(Math.abs(rnd.nextGaussian()));
+// int statusCodeIndex = (int) Math.round(Math.abs(rnd.nextGaussian()));
 		int statusCodeIndex = 1 + (int) Math.round(rnd.nextGaussian());
 		// out of bounds is for golf players
 		if (statusCodeIndex >= httpStatusCodes.length) {
@@ -181,9 +173,9 @@ public class ClfLineGenerator {
 
 
 
-
 	public List<String> generateClfLines(int nLines) {
-//		System.out.println(Thread.currentThread().getName() + " - generating " + nLines + " lines of log");
+// System.out.println(Thread.currentThread().getName() + " - generating " +
+// nLines + " lines of log");
 		List<String> logLines = new ArrayList<>(nLines);
 		for (int i = 0; i < nLines; i++) {
 			logLines.add(generateClfLine());

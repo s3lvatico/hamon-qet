@@ -1,6 +1,7 @@
 package org.gmnz.util;
 
 
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.InetAddress;
@@ -10,17 +11,19 @@ import java.net.Socket;
 import org.apache.log4j.Logger;
 
 
+
 public class ServerSocketTask implements Runnable {
 
 	/**
 	 * 
 	 */
 	private ServerSocket serverSocket;
+
 	private ServerSocketListener listener;
+
 	private boolean active;
 
 	private static final Logger log = Logger.getLogger(ServerSocketTask.class);
-
 
 
 
@@ -37,7 +40,6 @@ public class ServerSocketTask implements Runnable {
 			active = false;
 		}
 	}
-
 
 
 
@@ -81,6 +83,5 @@ public class ServerSocketTask implements Runnable {
 			}
 		}
 	}
-
 
 }

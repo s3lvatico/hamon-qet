@@ -1,1 +1,11 @@
-processo di campionamento
+Processo di campionamento
+=========================
+
+
+Caratteristiche
+---------------
+
+- si avvia e tramite apposito comando si arresta
+- non è previso riavvio dopo l'arresto
+- legge da un file indicato alla costruzione
+- il file da cui si legge non si cambia

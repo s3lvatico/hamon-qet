@@ -1,26 +1,31 @@
 package org.gmnz.qet.clog;
 
 
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 
 class LogGenerationFacilityTask implements Runnable {
 
 	private final ClfLineGenerator generator;
+
 	private final ClfLineCollector collector;
 
 	private static final long SLEEP_TIME_MS = 1000;
+
 	private static final double DUTY_CYCLE = .35;
+
 	private static final double CYCLE_TIME_MS = 30000;
 
 	private static final int LOW_TRAFFIC = 2;
+
 	private static final int HIGH_TRAFFIC = 15;
 
 	private boolean active;
 
 	private long tsStart;
-
 
 
 
@@ -32,11 +37,9 @@ class LogGenerationFacilityTask implements Runnable {
 
 
 
-
 	void stop() {
 		active = false;
 	}
-
 
 
 
@@ -53,13 +56,11 @@ class LogGenerationFacilityTask implements Runnable {
 
 
 
-
 	private int getTrafficRate() {
 		long elapsed = System.currentTimeMillis() - tsStart;
 		double cycleProgress = (elapsed % CYCLE_TIME_MS) / (double) CYCLE_TIME_MS;
 		return cycleProgress < DUTY_CYCLE ? LOW_TRAFFIC : HIGH_TRAFFIC;
 	}
-
 
 
 
@@ -72,7 +73,6 @@ class LogGenerationFacilityTask implements Runnable {
 			e.printStackTrace();
 		}
 	}
-
 
 
 

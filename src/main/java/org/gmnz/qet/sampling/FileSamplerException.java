@@ -8,18 +8,15 @@ public class FileSamplerException extends Exception {
 
 
 
-
 	public FileSamplerException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 
 
-
 	public FileSamplerException(String message) {
 		super(message);
 	}
-
 
 
 
